@@ -68,18 +68,26 @@ function App() {
       </aside>
       <section>
         <h2>List of elements</h2>
-        <ul>
           {
-            items.map( item => {
-              return (
-                <li key={item.id}>
-                  {item.text}
-                  <button onClick={createHandleRemoveItem(item.id)}>Delete</button>
-                </li>
-              )
-            })
+            items.length === 0 ? (
+              <p>
+                <strong>No hay elementos en la lista</strong>
+              </p>
+            )
+            :
+            (
+              <ul>
+                {
+                items.map( item => {
+                  return (
+                    <li key={item.id}>
+                    {item.text}
+                    <button onClick={createHandleRemoveItem(item.id)}>🧺</button>
+                  </li>
+                )})}
+              </ul>
+            )
           }
-        </ul>
       </section>
     </main>
   )
